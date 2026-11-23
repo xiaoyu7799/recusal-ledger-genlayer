@@ -15,3 +15,5 @@ The application records a public procedural decision. It does not verify the tru
 Use Node.js 24. Run `npm ci`, then `npm run dev` or `npm run build`. Test wallets are created in browser memory and use Stable Studionet (61999); use only test GEN.
 
 Run `genvm-lint check contracts/recusal_ledger.py` with GenVM Lint 0.11.0. The first line of the contract identifies its runner. `npm run verify:live` deploys the exact file, compares remote source bytes and records finalized receipts in a journal outside this repository. Run the script once at a time and retain the journal to resume a pending run.
+
+Run `python3 scripts/test_contract.py` for isolated workflow checks. These tests use controlled validator outputs. Run `npm run verify` to recheck published receipts and final readbacks once the complete two-round evidence has been published.

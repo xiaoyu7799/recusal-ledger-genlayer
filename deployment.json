@@ -45,9 +45,650 @@
         "0xE74a9088aD4d6dBf3C8cABcC0B91072d2a8c8afa": "idle",
         "0xee46B9Dc4c860149B1d140840284e5374854e746": "agree"
       }
+    },
+    "open-2": {
+      "hash": "0xb5d24c741f080bb99325341e358b092612f936085d2c868607f9579bed81e019",
+      "sender": "0xba4e9eFb3265FaC02966368176d81DC2E1C1335E",
+      "status": "FINALIZED",
+      "execution": "SUCCESS",
+      "result": {
+        "raw": "ABE=",
+        "status": "return",
+        "payload": {
+          "raw": [
+            17
+          ],
+          "readable": "2"
+        }
+      },
+      "votes": {
+        "0x19a02f95418A6c76091CDA37C4fc542CA82805c9": "agree",
+        "0x1B490819e040562a5fb40CD64B1c70D4419c38d1": "agree",
+        "0x4eeaD269a60bB89c98a23c1BCd0bd101CafD90E0": "idle",
+        "0x88E148Da14d45c5a5DD2DB25E776eBCBCe0Df539": "agree",
+        "0xee46B9Dc4c860149B1d140840284e5374854e746": "idle"
+      }
+    },
+    "disclose-1-0": {
+      "hash": "0x86e3b0e2386d2d725123fe2715861f3c9db6ee5d1a2bc72ac030b5b377e8aae8",
+      "sender": "0xba4e9eFb3265FaC02966368176d81DC2E1C1335E",
+      "status": "FINALIZED",
+      "execution": "SUCCESS",
+      "result": {
+        "raw": "AAA=",
+        "status": "return",
+        "payload": {
+          "raw": [
+            0
+          ],
+          "readable": "null"
+        }
+      },
+      "votes": {
+        "0x22Eda431B7fBC1216baE3b077a78c973a8719c58": "agree",
+        "0x23A15A452F19D1B616276fedC5B8B51d69082959": "idle",
+        "0x240d2d7c8DF220110c26cfFFC532479319Cca0dC": "idle",
+        "0xE74a9088aD4d6dBf3C8cABcC0B91072d2a8c8afa": "agree",
+        "0xee46B9Dc4c860149B1d140840284e5374854e746": "agree"
+      }
+    },
+    "disclose-1-2": {
+      "hash": "0xca8e9b382d1f529e09ef13a8a4b31c5bbc61e1b0128071172cb506a91defd4d0",
+      "sender": "0x831d4Dad87a0E114C326b0C711C9E91E12609811",
+      "status": "FINALIZED",
+      "execution": "SUCCESS",
+      "result": {
+        "raw": "AAA=",
+        "status": "return",
+        "payload": {
+          "raw": [
+            0
+          ],
+          "readable": "null"
+        }
+      },
+      "votes": {
+        "0x19a02f95418A6c76091CDA37C4fc542CA82805c9": "idle",
+        "0x22Eda431B7fBC1216baE3b077a78c973a8719c58": "agree",
+        "0x534af64FFB6796Bc69aBf4C26c50788F1fFAfe56": "idle",
+        "0x6fe9DE3d0adc76D6416A13CD8107aaE49A3CF98F": "agree",
+        "0xee46B9Dc4c860149B1d140840284e5374854e746": "agree"
+      }
+    },
+    "disclose-1-3": {
+      "hash": "0xe6f1a86290a9849060334118a694e9bcc8937f3b5ddf29cd4ef050d9f1bceff0",
+      "sender": "0x0C043338c9356e93e0c16525e93f6510BfAC6ff4",
+      "status": "FINALIZED",
+      "execution": "SUCCESS",
+      "result": {
+        "raw": "AAA=",
+        "status": "return",
+        "payload": {
+          "raw": [
+            0
+          ],
+          "readable": "null"
+        }
+      },
+      "votes": {
+        "0x19a02f95418A6c76091CDA37C4fc542CA82805c9": "agree",
+        "0x22Eda431B7fBC1216baE3b077a78c973a8719c58": "agree",
+        "0x4eeaD269a60bB89c98a23c1BCd0bd101CafD90E0": "idle",
+        "0x534af64FFB6796Bc69aBf4C26c50788F1fFAfe56": "agree",
+        "0x6DC61b906F74F44612c5545b0b79486133B3556d": "idle"
+      }
+    },
+    "disclose-1-4": {
+      "hash": "0x004c4d7ea75d14ff7cfc1931ab680baba99e66efc8eb7bb32e718b040b40fb84",
+      "sender": "0x2C7ecAF2D58013A9239d81B8e4fA07F893F8A10f",
+      "status": "FINALIZED",
+      "execution": "SUCCESS",
+      "result": {
+        "raw": "AAA=",
+        "status": "return",
+        "payload": {
+          "raw": [
+            0
+          ],
+          "readable": "null"
+        }
+      },
+      "votes": {
+        "0x23A15A452F19D1B616276fedC5B8B51d69082959": "agree",
+        "0x240d2d7c8DF220110c26cfFFC532479319Cca0dC": "agree",
+        "0x62718FbDf0509A398aA525C152D60c1F7A9d33D3": "idle",
+        "0x6DC61b906F74F44612c5545b0b79486133B3556d": "agree",
+        "0x725Ab89db6A9DD886Ba71Bc5E63a01070C325bE3": "agree"
+      }
+    },
+    "disclose-1-1": {
+      "hash": "0xcb9f2b01391a1f8dd094e726edded18a4a7747f6d354b9ea9141ad81fde8d560",
+      "sender": "0xD6F0D2559b7c7fd03C365AAa393A0FCDBcc4B1f0",
+      "status": "FINALIZED",
+      "execution": "SUCCESS",
+      "result": {
+        "raw": "AAA=",
+        "status": "return",
+        "payload": {
+          "raw": [
+            0
+          ],
+          "readable": "null"
+        }
+      },
+      "votes": {
+        "0x1B490819e040562a5fb40CD64B1c70D4419c38d1": "idle",
+        "0x240d2d7c8DF220110c26cfFFC532479319Cca0dC": "agree",
+        "0x5744305308D62592B7De585e1999c4Ea51E03C29": "agree",
+        "0x725Ab89db6A9DD886Ba71Bc5E63a01070C325bE3": "agree",
+        "0xBE58b43DF1d991e054F743Cc5571dD7029F3B888": "agree"
+      }
+    },
+    "disclose-2-0": {
+      "hash": "0x889058964d7c90fe56e051a3b0c15a51872cd4520631ae400e165e3973b2ecbb",
+      "sender": "0xba4e9eFb3265FaC02966368176d81DC2E1C1335E",
+      "status": "FINALIZED",
+      "execution": "SUCCESS",
+      "result": {
+        "raw": "AAA=",
+        "status": "return",
+        "payload": {
+          "raw": [
+            0
+          ],
+          "readable": "null"
+        }
+      },
+      "votes": {
+        "0x21e4F7ba6Ec0fbf70C019fbc0F9A797c3ed1F969": "agree",
+        "0x22Eda431B7fBC1216baE3b077a78c973a8719c58": "agree",
+        "0x240d2d7c8DF220110c26cfFFC532479319Cca0dC": "idle",
+        "0xBE58b43DF1d991e054F743Cc5571dD7029F3B888": "agree",
+        "0xE74a9088aD4d6dBf3C8cABcC0B91072d2a8c8afa": "agree"
+      }
+    },
+    "disclose-2-2": {
+      "hash": "0x11f1ff2080d9880923ae1bd862694420ebf7b3c13790a40127ab6d9ff0a03d94",
+      "sender": "0x831d4Dad87a0E114C326b0C711C9E91E12609811",
+      "status": "FINALIZED",
+      "execution": "SUCCESS",
+      "result": {
+        "raw": "AAA=",
+        "status": "return",
+        "payload": {
+          "raw": [
+            0
+          ],
+          "readable": "null"
+        }
+      },
+      "votes": {
+        "0x21e4F7ba6Ec0fbf70C019fbc0F9A797c3ed1F969": "agree",
+        "0x5744305308D62592B7De585e1999c4Ea51E03C29": "agree",
+        "0x5e880d85a70De78dDEf86236d57c42e73F560615": "agree",
+        "0x6fe9DE3d0adc76D6416A13CD8107aaE49A3CF98F": "idle",
+        "0x88E148Da14d45c5a5DD2DB25E776eBCBCe0Df539": "agree"
+      }
+    },
+    "disclose-2-4": {
+      "hash": "0x4243b11f27ad33ff07e926167059688eb05b610ebb8538b06a31b9642befdedf",
+      "sender": "0x2C7ecAF2D58013A9239d81B8e4fA07F893F8A10f",
+      "status": "FINALIZED",
+      "execution": "SUCCESS",
+      "result": {
+        "raw": "AAA=",
+        "status": "return",
+        "payload": {
+          "raw": [
+            0
+          ],
+          "readable": "null"
+        }
+      },
+      "votes": {
+        "0x19a02f95418A6c76091CDA37C4fc542CA82805c9": "agree",
+        "0x62718FbDf0509A398aA525C152D60c1F7A9d33D3": "agree",
+        "0x813890bC5bEDEB4F5437570962379F04738F18Cb": "agree",
+        "0xE74a9088aD4d6dBf3C8cABcC0B91072d2a8c8afa": "idle",
+        "0xee46B9Dc4c860149B1d140840284e5374854e746": "agree"
+      }
+    },
+    "disclose-2-3": {
+      "hash": "0x241ed62d05ccd4f477631dde4108a2e21ee29eec70d8e12800c242f0bd78cbc7",
+      "sender": "0x0C043338c9356e93e0c16525e93f6510BfAC6ff4",
+      "status": "FINALIZED",
+      "execution": "SUCCESS",
+      "result": {
+        "raw": "AAA=",
+        "status": "return",
+        "payload": {
+          "raw": [
+            0
+          ],
+          "readable": "null"
+        }
+      },
+      "votes": {
+        "0x240d2d7c8DF220110c26cfFFC532479319Cca0dC": "agree",
+        "0x5744305308D62592B7De585e1999c4Ea51E03C29": "agree",
+        "0x6fe9DE3d0adc76D6416A13CD8107aaE49A3CF98F": "agree",
+        "0x88E148Da14d45c5a5DD2DB25E776eBCBCe0Df539": "idle",
+        "0xe358f855C96d8E7243836cf986eb037175B9467e": "agree"
+      }
+    },
+    "disclose-2-1": {
+      "hash": "0x6105a68f3a73238a6b76a0a71305062f77bee8f9e3eae2a5355fd9b7d7dedf3e",
+      "sender": "0xD6F0D2559b7c7fd03C365AAa393A0FCDBcc4B1f0",
+      "status": "FINALIZED",
+      "execution": "SUCCESS",
+      "result": {
+        "raw": "AAA=",
+        "status": "return",
+        "payload": {
+          "raw": [
+            0
+          ],
+          "readable": "null"
+        }
+      },
+      "votes": {
+        "0x21e4F7ba6Ec0fbf70C019fbc0F9A797c3ed1F969": "agree",
+        "0x22Eda431B7fBC1216baE3b077a78c973a8719c58": "idle",
+        "0x4eeaD269a60bB89c98a23c1BCd0bd101CafD90E0": "agree",
+        "0x534af64FFB6796Bc69aBf4C26c50788F1fFAfe56": "agree",
+        "0x813890bC5bEDEB4F5437570962379F04738F18Cb": "agree"
+      }
+    },
+    "reconcile-1": {
+      "hash": "0x14542ec1664bad03bcdbd95c778e86765e030eb9ac56060bb1785c11ba3bba2b",
+      "sender": "0xba4e9eFb3265FaC02966368176d81DC2E1C1335E",
+      "status": "FINALIZED",
+      "execution": "SUCCESS",
+      "result": {
+        "raw": "ADRWT1RJTkc=",
+        "status": "return",
+        "payload": {
+          "raw": [
+            52,
+            86,
+            79,
+            84,
+            73,
+            78,
+            71
+          ],
+          "readable": "\"VOTING\""
+        }
+      },
+      "votes": {
+        "0x1B490819e040562a5fb40CD64B1c70D4419c38d1": "timeout",
+        "0x6fe9DE3d0adc76D6416A13CD8107aaE49A3CF98F": "agree",
+        "0x725Ab89db6A9DD886Ba71Bc5E63a01070C325bE3": "agree",
+        "0xBE58b43DF1d991e054F743Cc5571dD7029F3B888": "idle",
+        "0xe358f855C96d8E7243836cf986eb037175B9467e": "agree"
+      }
+    },
+    "reconcile-2": {
+      "hash": "0xa3dbd5d1d6e1915947344daebffa8247dbf3c55b8f516ea38d978d5e7ab66b8e",
+      "sender": "0xba4e9eFb3265FaC02966368176d81DC2E1C1335E",
+      "status": "FINALIZED",
+      "execution": "SUCCESS",
+      "result": {
+        "raw": "AKwBQVdBSVRJTkdfUkVQTEFDRU1FTlRT",
+        "status": "return",
+        "payload": {
+          "raw": [
+            172,
+            1,
+            65,
+            87,
+            65,
+            73,
+            84,
+            73,
+            78,
+            71,
+            95,
+            82,
+            69,
+            80,
+            76,
+            65,
+            67,
+            69,
+            77,
+            69,
+            78,
+            84,
+            83
+          ],
+          "readable": "\"AWAITING_REPLACEMENTS\""
+        }
+      },
+      "votes": {
+        "0x22Eda431B7fBC1216baE3b077a78c973a8719c58": "agree",
+        "0x4eeaD269a60bB89c98a23c1BCd0bd101CafD90E0": "agree",
+        "0x6fe9DE3d0adc76D6416A13CD8107aaE49A3CF98F": "agree",
+        "0x88E148Da14d45c5a5DD2DB25E776eBCBCe0Df539": "idle",
+        "0xBE58b43DF1d991e054F743Cc5571dD7029F3B888": "idle"
+      }
+    },
+    "reject-recused-seat": {
+      "hash": "0x3d35b301036e3293f6b8f396a9ebcf71f0d0fbb5a171a35013215068614ac2f5",
+      "sender": "0xba4e9eFb3265FaC02966368176d81DC2E1C1335E",
+      "status": "FINALIZED",
+      "execution": "ERROR",
+      "result": {
+        "raw": "AVNFQVRfSU5FTElHSUJMRQ==",
+        "status": "rollback",
+        "payload": "SEAT_INELIGIBLE"
+      },
+      "votes": {
+        "0x22Eda431B7fBC1216baE3b077a78c973a8719c58": "idle",
+        "0x4eeaD269a60bB89c98a23c1BCd0bd101CafD90E0": "agree",
+        "0x5744305308D62592B7De585e1999c4Ea51E03C29": "agree",
+        "0x62718FbDf0509A398aA525C152D60c1F7A9d33D3": "agree",
+        "0x88E148Da14d45c5a5DD2DB25E776eBCBCe0Df539": "agree"
+      }
+    },
+    "reject-blocked-vote": {
+      "hash": "0xdb6ff5cff74783c73a7272d183e90f6359c16c38c5897c107e6b5b5b0d032d8c",
+      "sender": "0x0C043338c9356e93e0c16525e93f6510BfAC6ff4",
+      "status": "FINALIZED",
+      "execution": "ERROR",
+      "result": {
+        "raw": "AVZPVElOR19DTE9TRUQ=",
+        "status": "rollback",
+        "payload": "VOTING_CLOSED"
+      },
+      "votes": {
+        "0x22Eda431B7fBC1216baE3b077a78c973a8719c58": "agree",
+        "0x23A15A452F19D1B616276fedC5B8B51d69082959": "agree",
+        "0x5e880d85a70De78dDEf86236d57c42e73F560615": "agree",
+        "0x6DC61b906F74F44612c5545b0b79486133B3556d": "agree",
+        "0xee46B9Dc4c860149B1d140840284e5374854e746": "idle"
+      }
+    },
+    "ballot-1": {
+      "hash": "0x5728500e6f06965026e2eeba9521178ff5a1a09e5042be6aa04279a6c127849c",
+      "sender": "0x831d4Dad87a0E114C326b0C711C9E91E12609811",
+      "status": "FINALIZED",
+      "execution": "SUCCESS",
+      "result": {
+        "raw": "AAA=",
+        "status": "return",
+        "payload": {
+          "raw": [
+            0
+          ],
+          "readable": "null"
+        }
+      },
+      "votes": {
+        "0x23A15A452F19D1B616276fedC5B8B51d69082959": "agree",
+        "0x240d2d7c8DF220110c26cfFFC532479319Cca0dC": "agree",
+        "0x62718FbDf0509A398aA525C152D60c1F7A9d33D3": "idle",
+        "0x88E148Da14d45c5a5DD2DB25E776eBCBCe0Df539": "agree",
+        "0xE74a9088aD4d6dBf3C8cABcC0B91072d2a8c8afa": "agree"
+      }
+    },
+    "ballot-0": {
+      "hash": "0x503a862b6ae4a08c7be247233c66a49308f59777b6fb3cbd29c719b82d1e4081",
+      "sender": "0xD6F0D2559b7c7fd03C365AAa393A0FCDBcc4B1f0",
+      "status": "FINALIZED",
+      "execution": "SUCCESS",
+      "result": {
+        "raw": "AAA=",
+        "status": "return",
+        "payload": {
+          "raw": [
+            0
+          ],
+          "readable": "null"
+        }
+      },
+      "votes": {
+        "0x62718FbDf0509A398aA525C152D60c1F7A9d33D3": "agree",
+        "0x6DC61b906F74F44612c5545b0b79486133B3556d": "agree",
+        "0x6fe9DE3d0adc76D6416A13CD8107aaE49A3CF98F": "agree",
+        "0x813890bC5bEDEB4F5437570962379F04738F18Cb": "agree",
+        "0xE74a9088aD4d6dBf3C8cABcC0B91072d2a8c8afa": "agree"
+      }
+    },
+    "ballot-2": {
+      "hash": "0x6b221cef722f0aef2f554d53c4ff384d6855bc66eefc9e8ffea0b1907e54f824",
+      "sender": "0x0C043338c9356e93e0c16525e93f6510BfAC6ff4",
+      "status": "FINALIZED",
+      "execution": "SUCCESS",
+      "result": {
+        "raw": "AAA=",
+        "status": "return",
+        "payload": {
+          "raw": [
+            0
+          ],
+          "readable": "null"
+        }
+      },
+      "votes": {
+        "0x19a02f95418A6c76091CDA37C4fc542CA82805c9": "agree",
+        "0x1B490819e040562a5fb40CD64B1c70D4419c38d1": "idle",
+        "0x21e4F7ba6Ec0fbf70C019fbc0F9A797c3ed1F969": "agree",
+        "0x4eeaD269a60bB89c98a23c1BCd0bd101CafD90E0": "agree",
+        "0x5e880d85a70De78dDEf86236d57c42e73F560615": "agree"
+      }
+    },
+    "ballot-3": {
+      "hash": "0xb58e496b40e9d52d2ba14175a53631d84ae5261af15cff30aff1348dc694a9ab",
+      "sender": "0x2C7ecAF2D58013A9239d81B8e4fA07F893F8A10f",
+      "status": "FINALIZED",
+      "execution": "SUCCESS",
+      "result": {
+        "raw": "AAA=",
+        "status": "return",
+        "payload": {
+          "raw": [
+            0
+          ],
+          "readable": "null"
+        }
+      },
+      "votes": {
+        "0x21e4F7ba6Ec0fbf70C019fbc0F9A797c3ed1F969": "agree",
+        "0x23A15A452F19D1B616276fedC5B8B51d69082959": "agree",
+        "0x5744305308D62592B7De585e1999c4Ea51E03C29": "agree",
+        "0x5e880d85a70De78dDEf86236d57c42e73F560615": "agree",
+        "0xE74a9088aD4d6dBf3C8cABcC0B91072d2a8c8afa": "idle"
+      }
+    },
+    "resolve": {
+      "hash": "0x9e018ae77bd21c8faed6f444778b6a0b6ab44530528c0a6ac33c8cd54e1aed6d",
+      "sender": "0xba4e9eFb3265FaC02966368176d81DC2E1C1335E",
+      "status": "FINALIZED",
+      "execution": "SUCCESS",
+      "result": {
+        "raw": "AERBUFBST1ZFRA==",
+        "status": "return",
+        "payload": {
+          "raw": [
+            68,
+            65,
+            80,
+            80,
+            82,
+            79,
+            86,
+            69,
+            68
+          ],
+          "readable": "\"APPROVED\""
+        }
+      },
+      "votes": {
+        "0x1B490819e040562a5fb40CD64B1c70D4419c38d1": "agree",
+        "0x240d2d7c8DF220110c26cfFFC532479319Cca0dC": "agree",
+        "0x5744305308D62592B7De585e1999c4Ea51E03C29": "idle",
+        "0x6DC61b906F74F44612c5545b0b79486133B3556d": "agree",
+        "0xE74a9088aD4d6dBf3C8cABcC0B91072d2a8c8afa": "agree"
+      }
+    },
+    "reject-blocked-resolution": {
+      "hash": "0xdc7cc525207dc2f9a98e341373b6316eff305088475d42c6db24d5f1836b2770",
+      "sender": "0xba4e9eFb3265FaC02966368176d81DC2E1C1335E",
+      "status": "FINALIZED",
+      "execution": "ERROR",
+      "result": {
+        "raw": "AVJFU09MVVRJT05fVU5BVkFJTEFCTEU=",
+        "status": "rollback",
+        "payload": "RESOLUTION_UNAVAILABLE"
+      },
+      "votes": {
+        "0x21e4F7ba6Ec0fbf70C019fbc0F9A797c3ed1F969": "agree",
+        "0x22Eda431B7fBC1216baE3b077a78c973a8719c58": "idle",
+        "0x534af64FFB6796Bc69aBf4C26c50788F1fFAfe56": "agree",
+        "0x5e880d85a70De78dDEf86236d57c42e73F560615": "idle",
+        "0x725Ab89db6A9DD886Ba71Bc5E63a01070C325bE3": "agree"
+      }
     }
   },
-  "states": {},
+  "states": {
+    "review1": {
+      "chair": "0xba4e9eFb3265FaC02966368176d81DC2E1C1335E",
+      "disclosures": [
+        "I am currently employed by Amber Library.",
+        "I hold an ownership stake in Birch Studio.",
+        "I hold a compensated role at Cedar Works.",
+        "I have no relevant financial or organizational interests.",
+        "I have no relevant financial or organizational interests."
+      ],
+      "no": 0,
+      "proposal": "Neighborhood reading pilot. Amber Library will receive a grant to deliver the pilot. Birch Studio and Cedar Works are listed as unpaid community advisers.",
+      "quorum": 3,
+      "recusals": [
+        [
+          0,
+          "Amber Library will receive a grant to deliver the pilot.",
+          "I am currently employed by Amber Library."
+        ]
+      ],
+      "roster": [
+        "0xba4e9eFb3265FaC02966368176d81DC2E1C1335E",
+        "0xD6F0D2559b7c7fd03C365AAa393A0FCDBcc4B1f0",
+        "0x831d4Dad87a0E114C326b0C711C9E91E12609811",
+        "0x0C043338c9356e93e0c16525e93f6510BfAC6ff4",
+        "0x2C7ecAF2D58013A9239d81B8e4fA07F893F8A10f"
+      ],
+      "state": "VOTING",
+      "yes": 0
+    },
+    "review2": {
+      "chair": "0xba4e9eFb3265FaC02966368176d81DC2E1C1335E",
+      "disclosures": [
+        "I am currently employed by Amber Library.",
+        "I hold an ownership stake in Birch Studio.",
+        "I hold a compensated role at Cedar Works.",
+        "I have no relevant financial or organizational interests.",
+        "I have no relevant financial or organizational interests."
+      ],
+      "no": 0,
+      "proposal": "Neighborhood workshop pilot. Amber Library will receive a grant to deliver the pilot. Birch Studio will be a paid subcontractor. Cedar Works will be a paid implementation partner.",
+      "quorum": 3,
+      "recusals": [
+        [
+          0,
+          "Amber Library will receive a grant to deliver the pilot.",
+          "I am currently employed by Amber Library."
+        ],
+        [
+          1,
+          "Birch Studio will be a paid subcontractor.",
+          "I hold an ownership stake in Birch Studio."
+        ],
+        [
+          2,
+          "Cedar Works will be a paid implementation partner.",
+          "I hold a compensated role at Cedar Works."
+        ]
+      ],
+      "roster": [
+        "0xba4e9eFb3265FaC02966368176d81DC2E1C1335E",
+        "0xD6F0D2559b7c7fd03C365AAa393A0FCDBcc4B1f0",
+        "0x831d4Dad87a0E114C326b0C711C9E91E12609811",
+        "0x0C043338c9356e93e0c16525e93f6510BfAC6ff4",
+        "0x2C7ecAF2D58013A9239d81B8e4fA07F893F8A10f"
+      ],
+      "state": "AWAITING_REPLACEMENTS",
+      "yes": 0
+    },
+    "approved": {
+      "chair": "0xba4e9eFb3265FaC02966368176d81DC2E1C1335E",
+      "disclosures": [
+        "I am currently employed by Amber Library.",
+        "I hold an ownership stake in Birch Studio.",
+        "I hold a compensated role at Cedar Works.",
+        "I have no relevant financial or organizational interests.",
+        "I have no relevant financial or organizational interests."
+      ],
+      "no": 1,
+      "proposal": "Neighborhood reading pilot. Amber Library will receive a grant to deliver the pilot. Birch Studio and Cedar Works are listed as unpaid community advisers.",
+      "quorum": 3,
+      "recusals": [
+        [
+          0,
+          "Amber Library will receive a grant to deliver the pilot.",
+          "I am currently employed by Amber Library."
+        ]
+      ],
+      "roster": [
+        "0xba4e9eFb3265FaC02966368176d81DC2E1C1335E",
+        "0xD6F0D2559b7c7fd03C365AAa393A0FCDBcc4B1f0",
+        "0x831d4Dad87a0E114C326b0C711C9E91E12609811",
+        "0x0C043338c9356e93e0c16525e93f6510BfAC6ff4",
+        "0x2C7ecAF2D58013A9239d81B8e4fA07F893F8A10f"
+      ],
+      "state": "APPROVED",
+      "yes": 3
+    },
+    "blocked": {
+      "chair": "0xba4e9eFb3265FaC02966368176d81DC2E1C1335E",
+      "disclosures": [
+        "I am currently employed by Amber Library.",
+        "I hold an ownership stake in Birch Studio.",
+        "I hold a compensated role at Cedar Works.",
+        "I have no relevant financial or organizational interests.",
+        "I have no relevant financial or organizational interests."
+      ],
+      "no": 0,
+      "proposal": "Neighborhood workshop pilot. Amber Library will receive a grant to deliver the pilot. Birch Studio will be a paid subcontractor. Cedar Works will be a paid implementation partner.",
+      "quorum": 3,
+      "recusals": [
+        [
+          0,
+          "Amber Library will receive a grant to deliver the pilot.",
+          "I am currently employed by Amber Library."
+        ],
+        [
+          1,
+          "Birch Studio will be a paid subcontractor.",
+          "I hold an ownership stake in Birch Studio."
+        ],
+        [
+          2,
+          "Cedar Works will be a paid implementation partner.",
+          "I hold a compensated role at Cedar Works."
+        ]
+      ],
+      "roster": [
+        "0xba4e9eFb3265FaC02966368176d81DC2E1C1335E",
+        "0xD6F0D2559b7c7fd03C365AAa393A0FCDBcc4B1f0",
+        "0x831d4Dad87a0E114C326b0C711C9E91E12609811",
+        "0x0C043338c9356e93e0c16525e93f6510BfAC6ff4",
+        "0x2C7ecAF2D58013A9239d81B8e4fA07F893F8A10f"
+      ],
+      "state": "AWAITING_REPLACEMENTS",
+      "yes": 0
+    }
+  },
   "source": "27de8bb75cfed14a7487ba9a8d5484085b39d5e6b60daaaf1e5636f53f38fabe",
   "address": "0x61795957392bBb433fBaF388AD36aad62AB7C09c",
   "sourceMatches": true

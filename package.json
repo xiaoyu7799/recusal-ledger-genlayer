@@ -1,0 +1,1 @@
+{"name":"recusal-ledger","private":true,"type":"module","dependencies":{"genlayer-js":"2.0.0"},"devDependencies":{"vite":"6.4.6"},"scripts":{"build":"vite build --base=./","dev":"vite","verify:live":"node scripts/live.mjs"}}

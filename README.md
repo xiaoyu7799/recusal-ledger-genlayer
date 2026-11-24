@@ -17,3 +17,11 @@ Use Node.js 24. Run `npm ci`, then `npm run dev` or `npm run build`. Test wallet
 Run `genvm-lint check contracts/recusal_ledger.py` with GenVM Lint 0.11.0. The first line of the contract identifies its runner. `npm run verify:live` deploys the exact file, compares remote source bytes and records finalized receipts in a journal outside this repository. Run the script once at a time and retain the journal to resume a pending run.
 
 Run `python3 scripts/test_contract.py` for isolated workflow checks. These tests use controlled validator outputs. Run `npm run verify` to recheck published receipts and final readbacks once the complete two-round evidence has been published.
+
+## Browser wallets
+
+Choose **Connect Wallet** and select the discovered MetaMask, OKX Wallet, or other injected EIP-1193 provider. The app discovers EIP-6963 providers first and offers to switch to or add Stable Studionet (61999) when needed. It shows the selected account and its Studionet balance. Disconnect clears the application's selected connection.
+
+GenLayerJS 2.0.0 estimates the transaction fees and builds the consensus transaction. The selected provider handles `eth_sendTransaction` after the app rechecks the account and network. The app then waits for finality and rereads final contract state. Only use test GEN. **Demo / Test Wallet** uses separate temporary accounts held in memory.
+
+Run `node --test scripts/wallet.test.mjs` to check provider discovery, switching and signer routing through the pinned SDK with a controlled provider. Browser-extension availability and transaction signing depend on the installed wallet and its support for Stable Studionet.

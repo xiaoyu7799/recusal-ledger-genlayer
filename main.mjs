@@ -1,4 +1,5 @@
-import { createAccount } from 'genlayer-js';
+import { connectedSigner } from './wallet.mjs';
+import { walletPanel } from './wallet-panel.mjs';
 import { clientFor, explorer, finalReceipt, fund, leader, memberAddress, read, write } from './network.mjs';
 import deployment from './deployment.json';
 import './style.css';
@@ -6,9 +7,10 @@ import './style.css';
 const $ = id => document.getElementById(id);
 const client = clientFor();
 const { address } = deployment;
-const wallets = [];
 let active, selected, submit;
 let busy = false;
+let view = 'overview';
+let currentRound;
 const el = (tag,text,cls) => {
   const node=document.createElement(tag);
   if(text!==undefined) node.textContent=text;
@@ -46,7 +48,8 @@ function modal(title,fields,handler){
   $('fields').replaceChildren(...fields);
   $('signer').textContent=handler ? 'Stable Studionet 61999 · '+active.address : 'Session only. Use test GEN. Refresh clears these wallets.';
   $('confirm').hidden=!handler;
-  submit=handler;
+  const wallet=active;
+  submit=data=>active===wallet ? handler?.(data) : status('Wallet changed. Reopen the action to sign.');
   $('dialog').showModal();
 }
 $('cancel').onclick=()=>$('dialog').close();
@@ -56,30 +59,27 @@ $('form').onsubmit=event=>{
   $('dialog').close();
   submit?.(data);
 };
-$('wallet').onclick=()=>{
-  const actions=wallets.map(wallet=>button(wallet.address,()=>{active=wallet; $('dialog').close(); refresh();}));
-  actions.push(button('Create session wallet',()=>{
-    active=createAccount();
-    wallets.push(active);
-    $('dialog').close();
-    refresh();
-  }));
-  if(active) actions.push(button('Fund active wallet',async()=>{
-    try{
-      const signer=clientFor(active);
-      await fund(signer,active.address);
-      status('Test balance: '+await signer.getBalance({address:active.address})+' base units');
-    }catch(error){status(error.message);}
-    $('dialog').close();
-  }));
-  modal('Test wallets',actions);
-};
+walletPanel({
+  client: client, fund, report: status,
+  change(wallet) {
+    active = wallet;
+    refresh().catch(error => status(error.message));
+  },
+});
 async function send(method,args){
-  if(!active||busy||!address) return;
-  const signer=clientFor(active);
+  if(busy||!address) return;
+  if(!active?.ready) return status('Connect a wallet on Stable Studionet first.');
+  const wallet=active;
   busy=true;
+  $('wallet').disabled=true;
+  $('round').querySelectorAll('button').forEach(control=>control.disabled=true);
   let hash;
+  let confirmed=false;
   try{
+    const signer=wallet.external ? connectedSigner(wallet,()=>active===wallet,tx=>{
+      hash=tx;
+      status('Submitted · waiting for finality',hash);
+    }) : clientFor(wallet.account);
     if(await signer.getChainId()!==61999) throw Error('Unexpected chain');
     status('Signing '+method.replaceAll('_',' ')+'…');
     hash=await write(signer,address,method,args);
@@ -89,10 +89,16 @@ async function send(method,args){
     if(receipt.statusName!=='FINALIZED'||result?.execution_result!=='SUCCESS') {
       throw Error('Transaction rejected: '+(result?.result?.payload??receipt.statusName));
     }
+    confirmed=true;
     if(method==='open_round') selected=BigInt(result.result.payload.readable);
-    status('Finalized · Success',hash);
-  }catch(error){status(error.message,hash);}
-  finally{busy=false;await refresh();}
+    await refresh(true);
+    status('FINALIZED / SUCCESS · Final round state refreshed',hash);
+  }catch(error){status((confirmed?'FINALIZED / SUCCESS · Final state read failed. Refresh the round. ':'')+error.message,hash);}
+  finally{
+    busy=false;
+    updateWalletControls();
+    if(currentRound?.id===selected) render(currentRound.round,currentRound.id);
+  }
 }
 $('open').onclick=()=>modal('Open a committee round',[
   field('Proposal text','proposal'),
@@ -109,6 +115,7 @@ function render(round,id){
   const recused=new Map(round.recusals.map(row=>[row[0],row]));
   const seats=el('div',undefined,'sheet');
   seats.append(el('h2','Committee seats'));
+  const matrix=el('div',undefined,'seat-matrix');
   round.roster.forEach((member,index)=>{
     const evidence=recused.get(index);
     const entry=el('details',undefined,'seat');
@@ -118,9 +125,10 @@ function render(round,id){
       entry.append(el('blockquote',evidence[1]),el('blockquote',evidence[2]));
     }
     entry.open=Boolean(evidence);
-    seats.append(entry);
+    matrix.append(entry);
   });
-  const proposal=el('div',undefined,'sheet');
+  seats.append(matrix);
+  const proposal=el('div',undefined,'sheet proposal');
   proposal.append(el('span',round.state==='AWAITING_REPLACEMENTS'?'QUORUM NOT MET':round.state,'badge'),el('h2','Proposal '+id),el('p',round.proposal),
     el('p','Chair: '+round.chair),
     el('p',round.state==='DISCLOSURES'?'Voting roster pending review.':(round.roster.length-recused.size)+' eligible · '+round.quorum+' quorum'),
@@ -141,13 +149,15 @@ function render(round,id){
   }
   if(round.state==='AWAITING_REPLACEMENTS')
     proposal.append(el('p','This round is locked below quorum. Convene a separate round with a revised committee.'));
-  proposal.append(controls);
+  if(active?.ready && controls.childElementCount) proposal.append(controls);
   const blocked=round.state==='AWAITING_REPLACEMENTS';
   const keyReceipts=id===1n && round.state==='APPROVED'
     ? [['Recusal decision','reconcile-1'],['Final decision','resolve']]
     : id===2n && blocked
       ? [['Recusal decision','reconcile-2'],['Vote rejected below quorum','reject-blocked-vote']]
       : [];
+  const decision=el('section',undefined,'sheet decision');
+  decision.append(el('h2','Decision ledger'),el('p',decisionText(round)));
   if(keyReceipts.length){
     const receipts=el('nav',undefined,'controls');
     receipts.setAttribute('aria-label','Round evidence');
@@ -155,15 +165,72 @@ function render(round,id){
       const receipt=deployment.transactions?.[key];
       if(receipt) receipts.append(link(label+' ↗',receipt.hash));
     }
-    proposal.append(receipts);
+    decision.append(receipts);
   }
-  const grid=el('div',undefined,'grid');
-  grid.append(proposal,seats);
-  $('round').replaceChildren(grid);
+  const eligibility=el('section',undefined,'sheet eligibility');
+  eligibility.append(el('h2','Voting eligibility'));
+  if(round.state==='DISCLOSURES'){
+    eligibility.append(el('p','Eligibility is established after the disclosures are reconciled.'));
+  }else{
+    const eligible=round.roster.length-recused.size;
+    const meter=el('meter');
+    meter.min=0;
+    meter.max=round.roster.length;
+    meter.low=Number(round.quorum);
+    meter.high=Number(round.quorum);
+    meter.optimum=round.roster.length;
+    meter.value=eligible;
+    meter.setAttribute('aria-label','Eligible seats out of the original committee');
+    eligibility.append(el('p',eligible+' eligible / '+round.quorum+' required','quorum-number'),meter,
+      el('p',eligible>=round.quorum?'Quorum met':'Below quorum · Voting is closed'));
+    const markers=el('ol',undefined,'eligibility-seats');
+    for(const [index] of round.roster.entries()){
+      markers.append(el('li','Seat '+(index+1)+' · '+(recused.has(index)?'Recused':'Eligible'),recused.has(index)?'recused':''));
+    }
+    eligibility.append(markers);
+  }
+  const conflicts=el('section',undefined,'sheet conflicts');
+  conflicts.append(el('h2','Conflict review'),
+    el('p','The findings compare the submitted proposal and participants’ own disclosures.'));
+  if(!round.recusals.length){
+    conflicts.append(el('p',round.state==='DISCLOSURES'?'Review has yet to take place.':'No conflicts were found in the submitted material.'));
+  }
+  for(const [index,proposalQuote,disclosureQuote] of round.recusals){
+    const caseFile=el('article',undefined,'case-file');
+    const compare=el('div',undefined,'compare');
+    for(const [label,quote] of [['Proposal',proposalQuote],['Disclosure',disclosureQuote]]){
+      const source=el('div');
+      source.append(el('p',label,'caps'),el('blockquote',quote));
+      compare.append(source);
+    }
+    caseFile.append(el('h3','Seat '+(index+1)+' · Recused'),compare);
+    conflicts.append(caseFile);
+  }
+  const sections={overview:[eligibility,decision],members:[seats],conflicts:[conflicts],eligibility:[eligibility],decision:[decision]};
+  $('round').replaceChildren(proposal,...sections[view]);
 }
-async function refresh(){
-  $('wallet').textContent=active?active.address.slice(0,9)+'…':'Test wallets';
-  $('open').disabled=!active||!address||busy;
+function decisionText(round){
+  if(round.state==='AWAITING_REPLACEMENTS') return 'No decision recorded. The remaining eligible members did not meet quorum.';
+  if(['APPROVED','REJECTED'].includes(round.state)) return 'Final decision: '+round.state.toLowerCase()+' · '+round.yes+' yes / '+round.no+' no.';
+  if(round.state==='VOTING') return 'Voting in progress · '+round.yes+' yes / '+round.no+' no.';
+  return 'A decision can be recorded after the eligibility review and vote.';
+}
+for(const control of $('roundViews').querySelectorAll('button')){
+  control.onclick=()=>{
+    view=control.dataset.view;
+    for(const option of $('roundViews').querySelectorAll('button')){
+      option.setAttribute('aria-pressed',String(option===control));
+    }
+    if(currentRound) render(currentRound.round,currentRound.id);
+  };
+}
+
+function updateWalletControls(){
+  $('wallet').disabled=busy;
+  $('open').disabled=!active?.ready||!address||busy;
+}
+async function refresh(throwOnError = false){
+  updateWalletControls();
   if(!address){$('round').textContent='Deployment evidence pending.';return;}
   try{
     const total=BigInt(await read(client,address,'get_count'));
@@ -179,8 +246,8 @@ async function refresh(){
     $('rounds').value=String(selected);
     const id=selected;
     const round=await read(client,address,'get_round',[id]);
-    if(selected===id) render(round,id);
-  }catch(error){status(error.message);}
+    if(selected===id){currentRound={round,id};render(round,id);}
+  }catch(error){if(throwOnError===true) throw error; status(error.message);}
 }
 $('rounds').onchange=()=>{selected=BigInt($('rounds').value);refresh();};
 $('refresh').onclick=refresh;

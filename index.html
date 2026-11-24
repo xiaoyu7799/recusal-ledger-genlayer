@@ -1,8 +1,18 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Recusal Ledger</title></head>
-<body><header><a href="./">RECUSAL / LEDGER</a><button id="wallet">Test wallets</button></header>
-<main><section class="hero"><p class="caps">Committee governance · Stable Studionet</p><h1>Who gets a seat<br>at the vote?</h1><p>Compare disclosures against a proposal, lock the voting roster, and record the committee’s decision.</p></section>
-<div class="toolbar"><label>Round <select id="rounds"></select></label><button id="open">Open round</button><button id="refresh">Refresh</button></div>
-<section id="round" aria-live="polite"></section><p id="status" role="status"></p>
+<body><header><a href="./">RECUSAL / LEDGER</a><button id="wallet">Connect Wallet</button></header>
+<main>
+<section class="archive-head"><div><p class="caps">Committee governance · Stable Studionet</p><h1>Governance register</h1></div><button id="open" type="button">Open round</button></section>
+<div class="toolbar"><label>Proposal round <select id="rounds"></select></label><button id="refresh" type="button">Refresh</button></div>
+<nav id="roundViews" aria-label="Round views">
+  <button type="button" data-view="overview" aria-pressed="true">Overview</button>
+  <button type="button" data-view="members" aria-pressed="false">Committee members</button>
+  <button type="button" data-view="conflicts" aria-pressed="false">Conflict review</button>
+  <button type="button" data-view="eligibility" aria-pressed="false">Voting eligibility</button>
+  <button type="button" data-view="decision" aria-pressed="false">Decision ledger</button>
+</nav>
+<p id="status" role="status"></p>
+<section id="round" aria-live="polite"></section>
 </main>
 <dialog id="dialog"><form id="form"><h2 id="dialog-title"></h2><div id="fields"></div><p id="signer"></p><button id="cancel" type="button">Close</button> <button id="confirm" type="submit">Confirm</button></form></dialog>
+<dialog id="walletPanel" aria-labelledby="walletTitle"><h2 id="walletTitle">Wallets</h2><div id="walletChoices"></div><p id="walletFeedback" role="status"></p><button id="walletClose" type="button">Close</button></dialog>
 <script type="module" src="/main.mjs"></script></body></html>

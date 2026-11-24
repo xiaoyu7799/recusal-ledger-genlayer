@@ -121,7 +121,7 @@ function render(round,id){
     seats.append(entry);
   });
   const proposal=el('div',undefined,'sheet');
-  proposal.append(el('span',round.state.replaceAll('_',' '),'badge'),el('h2','Proposal '+id),el('p',round.proposal),
+  proposal.append(el('span',round.state==='AWAITING_REPLACEMENTS'?'QUORUM NOT MET':round.state,'badge'),el('h2','Proposal '+id),el('p',round.proposal),
     el('p','Chair: '+round.chair),
     el('p',round.state==='DISCLOSURES'?'Voting roster pending review.':(round.roster.length-recused.size)+' eligible · '+round.quorum+' quorum'),
     el('p','Yes '+round.yes+' · No '+round.no));
@@ -142,6 +142,21 @@ function render(round,id){
   if(round.state==='AWAITING_REPLACEMENTS')
     proposal.append(el('p','This round is locked below quorum. Convene a separate round with a revised committee.'));
   proposal.append(controls);
+  const blocked=round.state==='AWAITING_REPLACEMENTS';
+  const keyReceipts=id===1n && round.state==='APPROVED'
+    ? [['Recusal decision','reconcile-1'],['Final decision','resolve']]
+    : id===2n && blocked
+      ? [['Recusal decision','reconcile-2'],['Vote rejected below quorum','reject-blocked-vote']]
+      : [];
+  if(keyReceipts.length){
+    const receipts=el('nav',undefined,'controls');
+    receipts.setAttribute('aria-label','Round evidence');
+    for(const [label,key] of keyReceipts){
+      const receipt=deployment.transactions?.[key];
+      if(receipt) receipts.append(link(label+' ↗',receipt.hash));
+    }
+    proposal.append(receipts);
+  }
   const grid=el('div',undefined,'grid');
   grid.append(proposal,seats);
   $('round').replaceChildren(grid);
@@ -169,11 +184,4 @@ async function refresh(){
 }
 $('rounds').onchange=()=>{selected=BigInt($('rounds').value);refresh();};
 $('refresh').onclick=refresh;
-const list=el('ul');
-for(const [name,receipt] of Object.entries(deployment.transactions??{})){
-  const row=el('li');
-  row.append(link(name.replaceAll('-',' '),receipt.hash),' · '+receipt.status+' / '+receipt.execution);
-  list.append(row);
-}
-$('receipts').append(list);
 refresh();
